@@ -4,14 +4,22 @@ import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
 
 import java.time.LocalDateTime;
 
+/**CLASSES FILHAS (BEBIDA, COMIDA, SOBREMESA)
+ * 
+ * Crie os atributos e os métodos getters/setters para todos.
+ * Obrigatoriamente, implemente o construtor da mãe e o método abstrato. 
+ * Crie o toString chamando o método que foi sobrescrito.
+ * No método abstrato, crie uma regra de negócio que utilize atributos da filha e da mãe.
+ * Crie um teste para trabalhar a instância com o construtor e retorno do tostring.
+ * Crie um teste para trabalhar com o retorno do método abstrato.*/
 public class Viagem extends Meta {
 
 	private boolean internacional;
 	private int qtdAcompanhantes;
 	private LocalDateTime dataViagem;
 	
-	public Viagem(String nome, float valor, LocalDateTime dataLimite) {
-		super(nome, valor, dataLimite);
+	public Viagem(String nome, float valor, String localDoInvestimento) {
+		super(nome, valor, localDoInvestimento);
 	}
 	
 	@Override
@@ -33,7 +41,7 @@ public class Viagem extends Meta {
 		sb.append(";");
 		
 		
-		return super.toString();
+		return sb.toString();
 	}
 
 	public boolean isInternacional() {

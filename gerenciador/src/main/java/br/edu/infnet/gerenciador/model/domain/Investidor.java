@@ -2,6 +2,13 @@ package br.edu.infnet.gerenciador.model.domain;
 
 import java.util.List;
 
+/**SOLICITANTE
+ * Nesta classe vamos criar três atributos 
+ * Vamos criar apenas os métodos getters destes atributos
+ * Vamos criar um construtor que receba todos os campos.
+ * Vamos implementar o toString colocando todos os campos separados por ";". 
+ * Use o StringBuilder para realizar esta implementação.
+ * */
 public class Investidor {
 	private String nome;
 	private String email;
@@ -43,6 +50,5 @@ public class Investidor {
 	public List<Aporte> getAportes() {
 		return aportes;
 	}
-	
 	
 }

@@ -1,20 +1,26 @@
 package br.edu.infnet.gerenciador.model.domain;
 
-import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
-
-import java.time.LocalDateTime;
+/**PRODUTO
+ * 
+ * Vamos tornar a classe mãe abstrata e criar os atributos.
+ * Vamos criar um construtor que receba todos os campos. Os atributos terão apenas os métodos "get".
+ * Crie um método abstrato que retorne alguma informação (retorno diferente de void)
+ * Vamos implementar o toString colocando todos os campos separados por ";". 
+ * Use o StringBuilder para realizar esta implementação.
+ * Crie uma classe com três testes - uma para cada filha. O objetivo é testar se 
+ * o construtor está retornando o objeto instanciado.*/
 
 public abstract class Meta {
 
 	private String nome;
 	private float valor;
-	private LocalDateTime dataLimite;
+	private String localDoInvestimento;
 	
-	public Meta(String nome, float valor, LocalDateTime dataLimite) {
+	public Meta(String nome, float valor, String localDoInvestimento) {
 		super();
 		this.nome = nome;
 		this.valor = valor;
-		this.dataLimite = dataLimite;
+		this.localDoInvestimento = localDoInvestimento;
 	}
 	
 	public abstract boolean metaEhDificil();
@@ -26,9 +32,9 @@ public abstract class Meta {
 		sb.append(";");
 		sb.append(valor);
 		sb.append(";");
-		sb.append(formataData(dataLimite));
+		sb.append(localDoInvestimento);
 		sb.append(";");
-		sb.append(metaEhDificil() ? "meta dificil" : "meta facil");
+		sb.append(metaEhDificil() ? "meta dificil;" : "meta facil;");
 		
 		return sb.toString();
 	}
@@ -41,9 +47,8 @@ public abstract class Meta {
 		return valor;
 	}
 
-	public LocalDateTime getDataLimite() {
-		return dataLimite;
+	public String getLocalDoInvestimento() {
+		return localDoInvestimento;
 	}
-	
-	
+
 }
