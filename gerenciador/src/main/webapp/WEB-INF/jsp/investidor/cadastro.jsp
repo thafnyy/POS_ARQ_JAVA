@@ -11,27 +11,31 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Cadastro de Viagem</title>
+<title>Cadastro de Investidor</title>
 </head>
 <body>
 	<div class="container">
-		<h2>Cadastro de Viagem</h2>
-		<form action="/viagem/incluir" method="post">
+		<h2>Cadastro de Investidor</h2>
+		<form action="/investidor/incluir" method="post">
 			<div class="form-group">
-				<label for="acomp">Qtd Acompanhamentes:</label> 
+				<label for="nome">Nome:</label> 
+					<input type="text"
+					class="form-control" id="nome" placeholder="Digite seu nome"
+					name="nome">
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label> 
+					<input type="email"
+					class="form-control" id="email" placeholder="Digite seu email"
+					name="email">
+			</div>
+			<div class="form-group">
+				<label for="idade">Idade:</label> 
 					<input type="number"
-					class="form-control" id="acomp" placeholder="Entre Qtd Acomp"
-					name="acomp">
+					class="form-control" id="idade" placeholder="Digite sua idade"
+					name="idade">
 			</div>
-			<div class="form-group">
-				<label for="dt">Data da Viagem:</label> <input type="date"
-					class="form-control" id="dt" placeholder="Data da Viagem"
-					name="dt">
-			</div>
-			<div class="checkbox">
-				<label><input type="checkbox" name="internacional">
-					Viagem Internacional</label>
-			</div>
+			
 			<button type="submit" class="btn btn-default">Cadastrar</button>
 		</form>
 	</div>

@@ -15,22 +15,30 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Cadastro de Viagem</h2>
-		<form action="/viagem/incluir" method="post">
+		<h2>Cadastro de Poupança</h2>
+		<form action="/poupanca/incluir" method="post">
 			<div class="form-group">
-				<label for="acomp">Qtd Acompanhamentes:</label> 
-					<input type="number"
-					class="form-control" id="acomp" placeholder="Entre Qtd Acomp"
-					name="acomp">
+				<label for="rendimento">Percentual Rendimento Anual:</label> 
+				<input type="number" min="1" step="any" 
+					class="form-control" id="rendimento" 
+					placeholder="Rendimento Anual" 
+					name="rendimento"/>
 			</div>
+			
 			<div class="form-group">
-				<label for="dt">Data da Viagem:</label> <input type="date"
-					class="form-control" id="dt" placeholder="Data da Viagem"
-					name="dt">
+				<label for="prazo">Prazo do Investimento:</label> 
+				<select class="form-control"
+					id="prazo">
+					<option>Curto</option>
+					<option>Médio</option>
+					<option>Longo</option>
+				</select>
 			</div>
 			<div class="checkbox">
-				<label><input type="checkbox" name="internacional">
-					Viagem Internacional</label>
+				<label for="liquidez"> 
+				<input type="checkbox" name="liquidez">
+					Necessita de Liquidez Diaria
+				</label>
 			</div>
 			<button type="submit" class="btn btn-default">Cadastrar</button>
 		</form>

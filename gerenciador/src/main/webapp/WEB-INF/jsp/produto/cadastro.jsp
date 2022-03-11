@@ -11,26 +11,33 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Cadastro de Viagem</title>
+<title>Cadastro de Produto</title>
 </head>
 <body>
 	<div class="container">
-		<h2>Cadastro de Viagem</h2>
-		<form action="/viagem/incluir" method="post">
+		<h2>Cadastro de Produto</h2>
+		<form action="/produto/incluir" method="post">
 			<div class="form-group">
-				<label for="acomp">Qtd Acompanhamentes:</label> 
-					<input type="number"
-					class="form-control" id="acomp" placeholder="Entre Qtd Acomp"
-					name="acomp">
+				<label for="tipoProduto">Tipo do Produto:</label> 
+				<select class="form-control"
+					id="tipoProduto">
+					<option>Eletrônico</option>
+					<option>Imóvel</option>
+					<option>Eletrodoméstico</option>
+					<option>Carro</option>
+					<option>Outros</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="dt">Data da Viagem:</label> <input type="date"
-					class="form-control" id="dt" placeholder="Data da Viagem"
-					name="dt">
+				<label for="marca">Marca:</label> 
+				<input type="text"
+					class="form-control" id="marca" placeholder="Marca do produto" 
+					name="marca">
 			</div>
 			<div class="checkbox">
-				<label><input type="checkbox" name="internacional">
-					Viagem Internacional</label>
+				<label for="entrada"> <input type="checkbox" name="entrada">
+					Apenas valor de entrada
+				</label>
 			</div>
 			<button type="submit" class="btn btn-default">Cadastrar</button>
 		</form>
