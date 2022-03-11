@@ -4,9 +4,6 @@ import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
 
 import java.time.LocalDateTime;
 
-import lombok.Getter;
-
-@Getter
 public abstract class Meta {
 
 	private String nome;
@@ -35,4 +32,18 @@ public abstract class Meta {
 		
 		return sb.toString();
 	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public float getValor() {
+		return valor;
+	}
+
+	public LocalDateTime getDataLimite() {
+		return dataLimite;
+	}
+	
+	
 }

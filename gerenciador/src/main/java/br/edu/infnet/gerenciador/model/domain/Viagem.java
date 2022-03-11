@@ -4,11 +4,6 @@ import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
 
 import java.time.LocalDateTime;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Viagem extends Meta {
 
 	private boolean internacional;
@@ -40,4 +35,30 @@ public class Viagem extends Meta {
 		
 		return super.toString();
 	}
+
+	public boolean isInternacional() {
+		return internacional;
+	}
+
+	public void setInternacional(boolean internacional) {
+		this.internacional = internacional;
+	}
+
+	public int getQtdAcompanhantes() {
+		return qtdAcompanhantes;
+	}
+
+	public void setQtdAcompanhantes(int qtdAcompanhantes) {
+		this.qtdAcompanhantes = qtdAcompanhantes;
+	}
+
+	public LocalDateTime getDataViagem() {
+		return dataViagem;
+	}
+
+	public void setDataViagem(LocalDateTime dataViagem) {
+		this.dataViagem = dataViagem;
+	}
+	
+	
 }

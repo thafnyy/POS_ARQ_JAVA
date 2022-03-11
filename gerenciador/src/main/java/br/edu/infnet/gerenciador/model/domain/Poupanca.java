@@ -2,11 +2,6 @@ package br.edu.infnet.gerenciador.model.domain;
 
 import java.time.LocalDateTime;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Poupanca extends Meta {
 
 	private float pctRendaAnual;
@@ -19,5 +14,14 @@ public class Poupanca extends Meta {
 	public boolean metaEhDificil() {
 		return false;
 	}
+
+	public float getPctRendaAnual() {
+		return pctRendaAnual;
+	}
+
+	public void setPctRendaAnual(float pctRendaAnual) {
+		this.pctRendaAnual = pctRendaAnual;
+	}
+	
 	
 }

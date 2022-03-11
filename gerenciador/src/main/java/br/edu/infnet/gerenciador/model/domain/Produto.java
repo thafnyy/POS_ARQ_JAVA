@@ -2,11 +2,6 @@ package br.edu.infnet.gerenciador.model.domain;
 
 import java.time.LocalDateTime;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class Produto extends Meta {
 
 	private String tipoProduto;
@@ -20,6 +15,30 @@ public class Produto extends Meta {
 	@Override
 	public boolean metaEhDificil() {
 		return false;
+	}
+
+	public String getTipoProduto() {
+		return tipoProduto;
+	}
+
+	public void setTipoProduto(String tipoProduto) {
+		this.tipoProduto = tipoProduto;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public boolean isEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(boolean entrada) {
+		this.entrada = entrada;
 	}
 	
 	

@@ -2,9 +2,6 @@ package br.edu.infnet.gerenciador.model.domain;
 
 import java.util.List;
 
-import lombok.Getter;
-
-@Getter
 public class Investidor {
 	private String nome;
 	private String email;
@@ -29,6 +26,22 @@ public class Investidor {
 		sb.append(idade);
 		
 		return sb.toString();
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public List<Aporte> getAportes() {
+		return aportes;
 	}
 	
 	
