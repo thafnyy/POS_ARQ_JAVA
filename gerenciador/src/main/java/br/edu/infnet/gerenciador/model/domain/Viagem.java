@@ -1,22 +1,17 @@
 package br.edu.infnet.gerenciador.model.domain;
 
 import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
+import static br.edu.infnet.gerenciador.util.DateUtil.converteData;
 
 import java.time.LocalDateTime;
 
-/**CLASSES FILHAS (BEBIDA, COMIDA, SOBREMESA)
- * 
- * Crie os atributos e os métodos getters/setters para todos.
- * Obrigatoriamente, implemente o construtor da mãe e o método abstrato. 
- * Crie o toString chamando o método que foi sobrescrito.
- * No método abstrato, crie uma regra de negócio que utilize atributos da filha e da mãe.
- * Crie um teste para trabalhar a instância com o construtor e retorno do tostring.
- * Crie um teste para trabalhar com o retorno do método abstrato.*/
 public class Viagem extends Meta {
 
 	private boolean internacional;
 	private int qtdAcompanhantes;
 	private LocalDateTime dataViagem;
+	
+	private String strDataViagem;
 	
 	public Viagem(String nome, float valor, String localDoInvestimento) {
 		super(nome, valor, localDoInvestimento);
@@ -32,7 +27,6 @@ public class Viagem extends Meta {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(super.toString());
-		sb.append(";");
 		sb.append(internacional ? "viagem internacional" : "viagem nacional");
 		sb.append(";");
 		sb.append(formataData(dataViagem));
@@ -66,6 +60,16 @@ public class Viagem extends Meta {
 
 	public void setDataViagem(LocalDateTime dataViagem) {
 		this.dataViagem = dataViagem;
+	}
+
+	public String getStrDataViagem() {
+		strDataViagem = formataData(dataViagem);
+		return strDataViagem;
+	}
+
+	public void setStrDataViagem(String strDataViagem) {
+		dataViagem = converteData(strDataViagem);
+		this.strDataViagem = strDataViagem;
 	}
 	
 	

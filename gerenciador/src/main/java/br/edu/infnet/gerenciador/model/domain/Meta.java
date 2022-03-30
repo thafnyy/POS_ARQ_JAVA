@@ -12,6 +12,7 @@ package br.edu.infnet.gerenciador.model.domain;
 
 public abstract class Meta {
 
+	private Integer id;
 	private String nome;
 	private float valor;
 	private String localDoInvestimento;
@@ -39,16 +40,36 @@ public abstract class Meta {
 		return sb.toString();
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public float getValor() {
 		return valor;
 	}
 
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+
 	public String getLocalDoInvestimento() {
 		return localDoInvestimento;
+	}
+
+	public void setLocalDoInvestimento(String localDoInvestimento) {
+		this.localDoInvestimento = localDoInvestimento;
 	}
 
 }
