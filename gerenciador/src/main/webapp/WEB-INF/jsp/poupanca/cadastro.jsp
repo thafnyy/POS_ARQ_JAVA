@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,29 +14,32 @@
 </head>
 <body>
 	<div class="container">
-		<h2>Cadastro de PoupanÁa</h2>
+		<h2>Cadastro de Poupan√ßa</h2>
 		<form action="/poupanca/incluir" method="post">
+			
+			<%@include file="../includes/meta.jsp" %>
+			
 			<div class="form-group">
 				<label for="rendimento">Percentual Rendimento Anual:</label> 
-				<input type="number" min="1" step="any" 
+				<input type="number" min="1" step="any" required="required"
 					class="form-control" id="rendimento" 
 					placeholder="Rendimento Anual" 
-					name="rendimento"/>
+					name="pctRendaAnual" value="${objeto.pctRendaAnual }"/>
 			</div>
 			
 			<div class="form-group">
 				<label for="prazo">Prazo do Investimento:</label> 
 				<select class="form-control"
-					id="prazo">
+					id="prazo" name="prazo" >
 					<option>Curto</option>
-					<option>MÈdio</option>
+					<option>M√©dio</option>
 					<option>Longo</option>
 				</select>
 			</div>
 			<div class="checkbox">
 				<label for="liquidez"> 
-				<input type="checkbox" name="liquidez">
-					Necessita de Liquidez Diaria
+				<input type="checkbox" name="liquidezDiaria" value="true">
+					Necessita de Liquidez Di√°ria
 				</label>
 			</div>
 			<button type="submit" class="btn btn-default">Cadastrar</button>

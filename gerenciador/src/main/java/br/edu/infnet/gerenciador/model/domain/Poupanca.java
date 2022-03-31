@@ -1,17 +1,9 @@
 package br.edu.infnet.gerenciador.model.domain;
 
-/**CLASSES FILHAS (BEBIDA, COMIDA, SOBREMESA)
- * Crie os atributos e os métodos getters/setters para todos.
- * Obrigatoriamente, implemente o construtor da mãe e o método abstrato.
- * Crie o toString chamando o método que foi sobrescrito.
- * No método abstrato, crie uma regra de negócio que utilize atributos da filha e da mãe.
- * Crie um teste para trabalhar a instância com o construtor e retorno do tostring.
- * Crie um teste para trabalhar com o retorno do método abstrato.
- * */
 public class Poupanca extends Meta {
 
 	private float pctRendaAnual;
-	private Prazo prazo;
+	private String prazo;
 	private boolean liquidezDiaria;
 	
 	public Poupanca(String nome, float valor, String localDoInvestimento) {
@@ -20,7 +12,7 @@ public class Poupanca extends Meta {
 
 	@Override
 	public boolean metaEhDificil() {
-		return getValor() > 50000 || prazo.equals(Prazo.LONGO);
+		return getValor() > 50000 || prazo.equals("Longo");
 	}
 
 	@Override
@@ -30,7 +22,7 @@ public class Poupanca extends Meta {
 				+ "Prazo do Investimento: %s; "
 				+ "Esse investimento %s tem liquidez diaria", 
 				pctRendaAnual, 
-				prazo.getPrazo(), 
+				prazo, 
 				liquidezDiaria ? "" : "nao");
 		
 		sb.append(str);
@@ -46,11 +38,11 @@ public class Poupanca extends Meta {
 		this.pctRendaAnual = pctRendaAnual;
 	}
 
-	public Prazo getPrazo() {
+	public String getPrazo() {
 		return prazo;
 	}
 
-	public void setPrazo(Prazo prazo) {
+	public void setPrazo(String prazo) {
 		this.prazo = prazo;
 	}
 

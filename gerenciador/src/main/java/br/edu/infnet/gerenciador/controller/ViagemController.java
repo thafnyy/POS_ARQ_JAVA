@@ -26,7 +26,7 @@ public class ViagemController {
 		v1.setInternacional(false);
 		v1.setQtdAcompanhantes(1);
 		
-		model.addAttribute("viagem", v1);
+		model.addAttribute("objeto", v1);
 		return "viagem/cadastro";
 	}
 	

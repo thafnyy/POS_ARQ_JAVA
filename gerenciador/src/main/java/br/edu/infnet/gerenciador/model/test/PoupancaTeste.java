@@ -8,14 +8,14 @@ public class PoupancaTeste {
 		Poupanca p = new Poupanca("Aposentadoria", 500000f, "Itau");
 		p.setLiquidezDiaria(false);
 		p.setPctRendaAnual(9.0f);
-		p.setPrazo(Prazo.LONGO);
+		p.setPrazo(Prazo.LONGO.getPrazo());
 		
 		System.out.println(p);
 		
 		Poupanca p1 = new Poupanca("Reserva Emergencia", 43000f, "XP Inv.");
 		p1.setLiquidezDiaria(true);
 		p1.setPctRendaAnual(5.2f);
-		p1.setPrazo(Prazo.CURTO);
+		p1.setPrazo(Prazo.CURTO.getPrazo());
 		
 		System.out.println(p1);
 	}

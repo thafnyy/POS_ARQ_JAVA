@@ -31,8 +31,8 @@
 		<p class="lead">Cadastre as metas de acordo com o tipo</p>
 		<div class="btn-group">
 			<a href="/viagens" class="btn btn-outline-dark" role="button">Viagem</a>
-			<a href="/produto" class="btn btn-outline-dark" role="button">Produto</a>
-			<a href="/poupanca" class="btn btn-outline-dark" role="button">Poupança</a>
+			<a href="/produtos" class="btn btn-outline-dark" role="button">Produto</a>
+			<a href="/poupancas" class="btn btn-outline-dark" role="button">Poupança</a>
 		</div>
 		
 		<hr class="my-4">

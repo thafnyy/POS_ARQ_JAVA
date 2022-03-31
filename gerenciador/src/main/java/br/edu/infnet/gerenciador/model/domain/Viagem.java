@@ -11,6 +11,8 @@ public class Viagem extends Meta {
 	private int qtdAcompanhantes;
 	private LocalDateTime dataViagem;
 	
+	
+	//transient
 	private String strDataViagem;
 	
 	public Viagem(String nome, float valor, String localDoInvestimento) {

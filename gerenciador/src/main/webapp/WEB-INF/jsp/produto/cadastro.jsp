@@ -17,10 +17,13 @@
 	<div class="container">
 		<h2>Cadastro de Produto</h2>
 		<form action="/produto/incluir" method="post">
+			
+			<%@include file="../includes/meta.jsp" %>
+		
 			<div class="form-group">
 				<label for="tipoProduto">Tipo do Produto:</label> 
 				<select class="form-control"
-					id="tipoProduto">
+					id="tipoProduto" name="tipoProduto">
 					<option>Eletrônico</option>
 					<option>Imóvel</option>
 					<option>Eletrodoméstico</option>
@@ -32,7 +35,7 @@
 				<label for="marca">Marca:</label> 
 				<input type="text"
 					class="form-control" id="marca" placeholder="Marca do produto" 
-					name="marca">
+					name="marca" value="${objeto.marca}">
 			</div>
 			<div class="checkbox">
 				<label for="entrada"> <input type="checkbox" name="entrada">
