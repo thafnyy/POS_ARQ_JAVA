@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Aporte {
 
+	private Integer id;
 	private LocalDateTime data;
 	private float valorAporte;
 	private Investidor investidor;
@@ -53,6 +54,18 @@ public class Aporte {
 
 	public LocalDateTime getData() {
 		return data;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
 	}
 	
 }

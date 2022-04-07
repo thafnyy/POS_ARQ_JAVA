@@ -1,26 +1,36 @@
 package br.edu.infnet.gerenciador.model.domain;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**SOLICITANTE
- * Nesta classe vamos criar três atributos 
- * Vamos criar apenas os métodos getters destes atributos
- * Vamos criar um construtor que receba todos os campos.
- * Vamos implementar o toString colocando todos os campos separados por ";". 
- * Use o StringBuilder para realizar esta implementação.
  * */
+
+@Entity
+@Table(name="investidor")
 public class Investidor {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String nome;
 	private String email;
 	private int idade;
 	
-	private List<Aporte> aportes;
+//	private List<Aporte> aportes;
 	
 	public Investidor(String nome, String email, int idade) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.idade = idade;
+	}
+
+	public Investidor() {
+		super();
 	}
 
 	@Override
@@ -35,20 +45,44 @@ public class Investidor {
 		return sb.toString();
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getIdade() {
 		return idade;
 	}
 
-	public List<Aporte> getAportes() {
-		return aportes;
+	public void setIdade(int idade) {
+		this.idade = idade;
 	}
-	
+
+//	public List<Aporte> getAportes() {
+//		return aportes;
+//	}
+//
+//	public void setAportes(List<Aporte> aportes) {
+//		this.aportes = aportes;
+//	}
+
 }

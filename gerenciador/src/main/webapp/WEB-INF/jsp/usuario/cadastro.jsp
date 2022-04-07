@@ -11,18 +11,29 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<title>Cadastro de Aporte</title>
+<title>Cadastro de Usuário</title>
 </head>
 <body>
 	<div class="container">
-		<h2>Cadastro de Aporte</h2>
-		<form action="/aporte/incluir" method="post">
+		<h2>Cadastro de Usuário</h2>
+		<form action="/usuario/incluir" method="post">
 			<div class="form-group">
-				<label for="aporte">Valor do Aporte:</label> 
-				<input type="number" min="1" step="any" 
-					class="form-control" id="aporte" 
-					placeholder="Rendimento Anual" 
-					name="valorAporte" value="${objeto.valorAporte}"/>
+				<label for="nome">Nome:</label> 
+					<input type="text"
+					class="form-control" id="nome" placeholder="Digite seu nome"
+					name="nome">
+			</div>
+			<div class="form-group">
+				<label for="email">Email:</label> 
+					<input type="email"
+					class="form-control" id="email" placeholder="Digite seu email"
+					name="email">
+			</div>
+			<div class="form-group">
+				<label for="idade">Senha:</label> 
+					<input type="number"
+					class="form-control" id="idade" placeholder="Digite sua idade"
+					name="senha">
 			</div>
 			
 			<button type="submit" class="btn btn-default">Cadastrar</button>
