@@ -1,33 +1,33 @@
 package br.edu.infnet.gerenciador.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.gerenciador.model.domain.Produto;
+import br.edu.infnet.gerenciador.model.domain.Usuario;
+import br.edu.infnet.gerenciador.model.repository.IProdutoRepository;
 
 @Service
 public class ProdutoService {
 	
-	private static Map<Integer, Produto> map = new HashMap<Integer, Produto>();
-	private static Integer id = 1;
-
-	public Collection<Produto> obterLista() {
-		return map.values();
+	@Autowired
+	private IProdutoRepository repository;
+	
+	public Collection<Produto> obterLista(Usuario usuario) {
+		return (Collection<Produto>) repository.findAll(usuario.getId(),
+				Sort.by(Sort.Direction.ASC, "nome")
+				);
 	}
 	
 	public void incluir(Produto produto) {
-		produto.setId(id++);
-		map.put(produto.getId(), produto);
+		repository.save(produto);
 	}
 	
 	public void excluir(Integer id) {
-		map.remove(id);
+		repository.deleteById(id);
 	}
 	
-	public Produto obterPorId(Integer id) {
-		return map.get(id);
-	}
 }

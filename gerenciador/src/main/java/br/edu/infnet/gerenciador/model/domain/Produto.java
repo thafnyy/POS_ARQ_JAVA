@@ -1,15 +1,12 @@
 package br.edu.infnet.gerenciador.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.gerenciador.util.TipoProdutoConstante;
 
-/**CLASSES FILHAS (BEBIDA, COMIDA, SOBREMESA)
- * Crie os atributos e os métodos getters/setters para todos.
- * Obrigatoriamente, implemente o construtor da mãe e o método abstrato. 
- * Crie o toString chamando o método que foi sobrescrito.
- * No método abstrato, crie uma regra de negócio que utilize atributos da filha e da mãe.
- * Crie um teste para trabalhar a instância com o construtor e retorno do tostring.
- * Crie um teste para trabalhar com o retorno do método abstrato.*/
-
+@Entity
+@Table(name="produto")
 public class Produto extends Meta {
 
 	private String tipoProduto;
@@ -18,6 +15,9 @@ public class Produto extends Meta {
 
 	public Produto(String nome, float valor, String localDoInvestimento) {
 		super(nome, valor, localDoInvestimento);
+	}
+	
+	public Produto() {
 	}
 	
 	@Override

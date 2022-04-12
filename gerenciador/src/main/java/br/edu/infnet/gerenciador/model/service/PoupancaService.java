@@ -1,33 +1,33 @@
 package br.edu.infnet.gerenciador.model.service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.gerenciador.model.domain.Poupanca;
+import br.edu.infnet.gerenciador.model.domain.Usuario;
+import br.edu.infnet.gerenciador.model.repository.IPoupancaRepository;
 
 @Service
 public class PoupancaService {
 	
-	private static Map<Integer, Poupanca> map = new HashMap<Integer, Poupanca>();
-	private static Integer id = 1;
-
-	public Collection<Poupanca> obterLista() {
-		return map.values();
+	@Autowired
+	private IPoupancaRepository repository;
+	
+	public Collection<Poupanca> obterLista(Usuario usuario) {
+		return (Collection<Poupanca>) repository.findAll(usuario.getId(), 
+				Sort.by(Sort.Direction.ASC, "nome")
+				);
 	}
 	
 	public void incluir(Poupanca poupanca) {
-		poupanca.setId(id++);
-		map.put(poupanca.getId(), poupanca);
+		repository.save(poupanca);
 	}
 	
 	public void excluir(Integer id) {
-		map.remove(id);
+		repository.deleteById(id);
 	}
 	
-	public Poupanca obterPorId(Integer id) {
-		return map.get(id);
-	}
 }

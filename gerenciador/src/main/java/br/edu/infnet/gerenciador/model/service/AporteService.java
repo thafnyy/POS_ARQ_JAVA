@@ -1,35 +1,29 @@
 package br.edu.infnet.gerenciador.model.service;
 
-import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.gerenciador.model.domain.Aporte;
+import br.edu.infnet.gerenciador.model.repository.IAporteRepository;
 
 @Service
 public class AporteService {
 	
-	private static Map<Integer, Aporte> map = new HashMap<Integer, Aporte>();
-	private static Integer id = 1;
-
+	@Autowired
+	private IAporteRepository repository;
+	
 	public Collection<Aporte> obterLista() {
-		return map.values();
+		return (Collection<Aporte>) repository.findAll();
 	}
 	
 	public void incluir(Aporte aporte) {
-		aporte.setId(id++);
-		aporte.setData(LocalDateTime.now());
-		map.put(aporte.getId(), aporte);
+		repository.save(aporte);
 	}
 	
 	public void excluir(Integer id) {
-		map.remove(id);
+		repository.deleteById(id);
 	}
 	
-	public Aporte obterPorId(Integer id) {
-		return map.get(id);
-	}
 }

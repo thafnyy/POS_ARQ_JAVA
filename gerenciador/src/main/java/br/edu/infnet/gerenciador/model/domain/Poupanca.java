@@ -1,10 +1,19 @@
 package br.edu.infnet.gerenciador.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="poupanca")
 public class Poupanca extends Meta {
 
 	private float pctRendaAnual;
 	private String prazo;
 	private boolean liquidezDiaria;
+	
+	public Poupanca() {
+		
+	}
 	
 	public Poupanca(String nome, float valor, String localDoInvestimento) {
 		super(nome, valor, localDoInvestimento);

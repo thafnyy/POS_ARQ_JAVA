@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.gerenciador.model.domain.Investidor;
+import br.edu.infnet.gerenciador.model.domain.Usuario;
 import br.edu.infnet.gerenciador.model.service.InvestidorService;
 
 @Controller
@@ -22,13 +24,16 @@ public class InvestidorController {
 	}
 	
 	@GetMapping(value="/investidores")
-	public String lista(Model model) {
-		model.addAttribute("lista", service.obterLista());
+	public String lista(Model model, @SessionAttribute("usuario") Usuario usuario) {
+		model.addAttribute("lista", service.obterLista(usuario));
 		return "investidor/lista";
 	}
 	
 	@PostMapping(value="/investidor/incluir")
-	public String incluir(Investidor investidor) {
+	public String incluir(Investidor investidor, @SessionAttribute("usuario") Usuario usuario) {
+		
+		investidor.setUsuario(usuario);
+		
 		service.incluir(investidor);
 		return "redirect:/investidores";
 	}

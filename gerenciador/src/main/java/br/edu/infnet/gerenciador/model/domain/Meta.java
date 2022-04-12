@@ -1,27 +1,39 @@
 package br.edu.infnet.gerenciador.model.domain;
 
-/**PRODUTO
- * 
- * Vamos tornar a classe mãe abstrata e criar os atributos.
- * Vamos criar um construtor que receba todos os campos. Os atributos terão apenas os métodos "get".
- * Crie um método abstrato que retorne alguma informação (retorno diferente de void)
- * Vamos implementar o toString colocando todos os campos separados por ";". 
- * Use o StringBuilder para realizar esta implementação.
- * Crie uma classe com três testes - uma para cada filha. O objetivo é testar se 
- * o construtor está retornando o objeto instanciado.*/
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="meta")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Meta {
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private float valor;
 	private String localDoInvestimento;
+	
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Meta(String nome, float valor, String localDoInvestimento) {
 		super();
 		this.nome = nome;
 		this.valor = valor;
 		this.localDoInvestimento = localDoInvestimento;
+	}
+	
+	public Meta() {
 	}
 	
 	public abstract boolean metaEhDificil();
@@ -72,4 +84,13 @@ public abstract class Meta {
 		this.localDoInvestimento = localDoInvestimento;
 	}
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	
 }

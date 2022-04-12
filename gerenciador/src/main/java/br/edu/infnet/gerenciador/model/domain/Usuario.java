@@ -1,9 +1,13 @@
 package br.edu.infnet.gerenciador.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,14 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private boolean admin;
+	
+	@OneToMany
+	@JoinColumn(name="idUsuario")
+	private List<Investidor> investidores;
+	
+	@OneToMany
+	@JoinColumn(name="idUsuario")
+	private List<Meta> metas;
 
 	public Integer getId() {
 		return id;
@@ -39,6 +51,12 @@ public class Usuario {
 	public String getSenha() {
 		return senha;
 	}
+	public List<Meta> getMetas() {
+		return metas;
+	}
+	public void setMetas(List<Meta> metas) {
+		this.metas = metas;
+	}
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
@@ -48,5 +66,10 @@ public class Usuario {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
-
+	public List<Investidor> getInvestidores() {
+		return investidores;
+	}
+	public void setInvestidores(List<Investidor> investidores) {
+		this.investidores = investidores;
+	}
 }

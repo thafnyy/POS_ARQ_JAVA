@@ -5,18 +5,31 @@ import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Aporte {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity
+@Table(name="aporte")
+public class Aporte {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDateTime data;
 	private float valorAporte;
+	
+	@Transient
 	private Investidor investidor;
+	@Transient
 	private List<Meta> metas;
 	
 	public Aporte() {
-		data = LocalDateTime.now();
-		valorAporte = 0.0f;
 	}
+	
 	
 	@Override
 	public String toString() {
@@ -28,20 +41,28 @@ public class Aporte {
 				null == metas || metas.isEmpty() ? 0 : metas.size());
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public LocalDateTime getData() {
+		return data;
+	}
+
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
+
 	public float getValorAporte() {
 		return valorAporte;
 	}
 
 	public void setValorAporte(float valorAporte) {
 		this.valorAporte = valorAporte;
-	}
-
-	public List<Meta> getMetas() {
-		return metas;
-	}
-
-	public void setMetas(List<Meta> metas) {
-		this.metas = metas;
 	}
 
 	public Investidor getInvestidor() {
@@ -52,20 +73,13 @@ public class Aporte {
 		this.investidor = investidor;
 	}
 
-	public LocalDateTime getData() {
-		return data;
+	public List<Meta> getMetas() {
+		return metas;
 	}
 
-	public Integer getId() {
-		return id;
+	public void setMetas(List<Meta> metas) {
+		this.metas = metas;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
 	
 }

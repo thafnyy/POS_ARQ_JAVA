@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import br.edu.infnet.gerenciador.model.domain.Usuario;
 import br.edu.infnet.gerenciador.model.domain.Viagem;
 import br.edu.infnet.gerenciador.model.service.ViagemService;
 
@@ -31,13 +33,14 @@ public class ViagemController {
 	}
 	
 	@GetMapping(value="/viagens")
-	public String lista(Model model) {
-		model.addAttribute("lista", service.obterLista());
+	public String lista(Model model, @SessionAttribute("usuario") Usuario usuario) {
+		model.addAttribute("lista", service.obterLista(usuario));
 		return "viagem/lista";
 	}
 	
 	@PostMapping(value="/viagem/incluir")
-	public String incluir(Viagem viagem) {
+	public String incluir(Viagem viagem, @SessionAttribute("usuario") Usuario usuario) {
+		viagem.setUsuario(usuario);
 		service.incluir(viagem);
 		return "redirect:/viagens";
 	}

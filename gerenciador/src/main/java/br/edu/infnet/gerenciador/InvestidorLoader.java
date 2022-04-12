@@ -6,6 +6,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.gerenciador.model.domain.Investidor;
+import br.edu.infnet.gerenciador.model.domain.Usuario;
 import br.edu.infnet.gerenciador.model.service.InvestidorService;
 
 @Component
@@ -17,10 +18,15 @@ public class InvestidorLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Incluindo investidor padrao");
+		
+		Usuario u = new Usuario();
+		u.setId(1);
+		
 		Investidor i = new Investidor();
 		i.setNome("Thafny");
 		i.setIdade(27);
 		i.setEmail("thafny@outlook.com");
+		i.setUsuario(u);
 		
 		service.incluir(i);
 	}

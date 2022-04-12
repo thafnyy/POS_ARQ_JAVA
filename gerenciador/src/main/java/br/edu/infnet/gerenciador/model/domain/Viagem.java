@@ -1,19 +1,28 @@
 package br.edu.infnet.gerenciador.model.domain;
 
-import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
 import static br.edu.infnet.gerenciador.util.DateUtil.converteData;
+import static br.edu.infnet.gerenciador.util.DateUtil.formataData;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="viagem")
 public class Viagem extends Meta {
 
 	private boolean internacional;
 	private int qtdAcompanhantes;
 	private LocalDateTime dataViagem;
 	
-	
-	//transient
+	@Transient
 	private String strDataViagem;
+	
+	public Viagem() {
+		
+	}
 	
 	public Viagem(String nome, float valor, String localDoInvestimento) {
 		super(nome, valor, localDoInvestimento);

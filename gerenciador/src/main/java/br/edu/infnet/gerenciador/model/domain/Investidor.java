@@ -4,10 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-/**SOLICITANTE
- * */
 
 @Entity
 @Table(name="investidor")
@@ -19,6 +18,10 @@ public class Investidor {
 	private String nome;
 	private String email;
 	private int idade;
+	
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 //	private List<Aporte> aportes;
 	
@@ -76,6 +79,15 @@ public class Investidor {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 
 //	public List<Aporte> getAportes() {
 //		return aportes;

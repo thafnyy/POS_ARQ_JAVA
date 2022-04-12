@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.gerenciador.model.domain.Produto;
+import br.edu.infnet.gerenciador.model.domain.Usuario;
 import br.edu.infnet.gerenciador.model.service.ProdutoService;
 import br.edu.infnet.gerenciador.util.TipoProdutoConstante;
 
@@ -31,13 +33,14 @@ public class ProdutoController {
 	
 
 	@GetMapping(value="/produtos")
-	public String lista(Model model) {
-		model.addAttribute("lista", service.obterLista());
+	public String lista(Model model, @SessionAttribute("usuario") Usuario usuario) {
+		model.addAttribute("lista", service.obterLista(usuario));
 		return "produto/lista";
 	}
 	
 	@PostMapping(value="/produto/incluir")
-	public String incluir(Produto produto) {
+	public String incluir(Produto produto, @SessionAttribute("usuario") Usuario usuario) {
+		produto.setUsuario(usuario);
 		service.incluir(produto);
 		return "redirect:/produtos";
 	}
