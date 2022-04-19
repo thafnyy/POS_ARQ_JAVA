@@ -13,34 +13,28 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<title>Listagem de Usuários</title>
+<title>Listagem de Metas</title>
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/includes/menu.jsp" />
 
 	<div class="container">
-		<h2>Usuários</h2>
+		<h2>Metas</h2>
 		
-
 		<br/>
 		<c:if test="${empty lista}">
-			Não existem usuários cadastrados. 
+			Não existem metas cadastradas. 
 		</c:if>
 		<c:if test="${not empty lista}">
-			<p>Listagem de Usuários (${lista.size()})</p>
+			<p>Listagem de Metas (${lista.size()})</p>
 			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>#</th>
 						<th>Nome</th>
-						<th>Email</th>
-						<th>Administrador</th>
-						<th>Investidores</th>
-						<th>Metas</th>
-						<th>Aportes</th>
-						<c:if test="${usuario.admin}">
-							<th></th>
-						</c:if>
+						<th>Valor</th>
+						<th>Local do Investimento</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -48,14 +42,9 @@
 					<tr>
 						<td>${l.id}</td>
 						<td>${l.nome}</td>
-						<td>${l.email}</td>
-						<td>${l.admin}</td>
-						<td>${l.investidores.size()}</td>
-						<td>${l.metas.size()}</td>
-						<td>${l.aportes.size()}</td>
-						<c:if test="${usuario.admin}">
-							<td><a href="/usuario/${l.id}/excluir">excluir</a></td>
-						</c:if>
+						<td>${l.valor}</td>
+						<td>${l.localDoInvestimento}</td>
+						<td><a href="/meta/${l.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 					

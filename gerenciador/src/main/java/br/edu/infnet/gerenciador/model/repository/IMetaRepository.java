@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.gerenciador.model.domain.Aporte;
+import br.edu.infnet.gerenciador.model.domain.Meta;
 
 @Repository
-public interface IAporteRepository extends CrudRepository<Aporte, Integer>{
-	
-	@Query("from Aporte a where a.usuario.id = :id")
-	Collection<Aporte> findAll(Integer id, Sort by);
+public interface IMetaRepository extends CrudRepository<Meta, Integer>{
 
-	Collection<Aporte> findAll(Sort by);
+	@Query("from Meta m where m.usuario.id = :id")
+	Collection<Meta> findAll(Integer id, Sort by);
+
+	
 }

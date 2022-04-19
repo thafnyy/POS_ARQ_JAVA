@@ -15,6 +15,8 @@
 			<c:if test="${not empty usuario}">
 				<li class="nav-item"><a class="nav-link" href="/investidores">Investidor</a>
 				</li>
+				<li class="nav-item"><a class="nav-link" href="/metas">Metas</a>
+				</li>
 				<li class="nav-item"><a class="nav-link" href="/viagens">Viagem</a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="/produtos">Produto</a>
@@ -33,6 +35,8 @@
 				</li>
 			</c:if>
 			<c:if test="${not empty usuario}">
+				<li class="nav-item"><a class="nav-link" href="/usuarios">Listar Usuários</a>
+				</li>
 				<li class="nav-item"><a class="nav-link" href="/logout">Sair,
 						${usuario.nome}</a></li>
 			</c:if>

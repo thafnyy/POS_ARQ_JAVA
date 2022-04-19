@@ -2,6 +2,7 @@ package br.edu.infnet.gerenciador.model.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,14 +23,18 @@ public class Usuario {
 	private String senha;
 	private boolean admin;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name="idUsuario")
 	private List<Investidor> investidores;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
 	@JoinColumn(name="idUsuario")
 	private List<Meta> metas;
 
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JoinColumn(name="idUsuario")
+	private List<Aporte> aportes;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -72,4 +77,11 @@ public class Usuario {
 	public void setInvestidores(List<Investidor> investidores) {
 		this.investidores = investidores;
 	}
+	public List<Aporte> getAportes() {
+		return aportes;
+	}
+	public void setAportes(List<Aporte> aportes) {
+		this.aportes = aportes;
+	}
+	
 }

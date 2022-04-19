@@ -36,6 +36,8 @@
 						<th>#</th>
 						<th>Data do Aporte</th>
 						<th>Valor do Aporte</th>
+						<th>Metas</th>
+						<th>Investidor</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -45,6 +47,8 @@
 						<td>${l.id}</td>
 						<td>${l.data}</td>
 						<td>${l.valorAporte}</td>
+						<td>${l.metas.size()}</td>
+						<td>${l.investidor.nome}</td>
 						<td><a href="/aporte/${l.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>

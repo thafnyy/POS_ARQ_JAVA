@@ -19,17 +19,21 @@ public class ProdutoLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 	
-		Produto p = new Produto("Notebook", 8000f, "Itau");
-		p.setEntrada(false);
-		p.setMarca("Dell");
-		p.setTipoProduto(TipoProdutoConstante.ELETRONICO);
-
 		Usuario u = new Usuario();
 		u.setId(1);
-		p.setUsuario(u);
-		
-		service.incluir(p);
+
+		if(service.obterLista(u).isEmpty()) {
+			System.out.println("Incluindo produto padrao");
+
+			Produto p = new Produto("Notebook", 8000f, "Itau");
+			p.setEntrada(false);
+			p.setMarca("Dell");
+			p.setTipoProduto(TipoProdutoConstante.ELETRONICO);
 	
+			p.setUsuario(u);
+			
+			service.incluir(p);
+		}	
 	}
 
 }

@@ -17,18 +17,21 @@ public class InvestidorLoader implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("Incluindo investidor padrao");
-		
 		Usuario u = new Usuario();
 		u.setId(1);
-		
-		Investidor i = new Investidor();
-		i.setNome("Thafny");
-		i.setIdade(27);
-		i.setEmail("thafny@outlook.com");
-		i.setUsuario(u);
-		
-		service.incluir(i);
+
+		if(service.obterLista(u).isEmpty()) {
+			System.out.println("Incluindo investidor padrao");
+			
+			
+			Investidor i = new Investidor();
+			i.setNome("Thafny");
+			i.setIdade(27);
+			i.setEmail("thafny@outlook.com");
+			i.setUsuario(u);
+			
+			service.incluir(i);
+		}
 	}
 
 }

@@ -1,5 +1,7 @@
 package br.edu.infnet.gerenciador.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,6 +28,9 @@ public abstract class Meta {
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
+	
+	@ManyToMany(mappedBy = "metas")
+	private List<Aporte> aportes;
 	
 	public Meta(String nome, float valor, String localDoInvestimento) {
 		super();
@@ -92,5 +98,12 @@ public abstract class Meta {
 		this.usuario = usuario;
 	}
 
-	
+	public List<Aporte> getAportes() {
+		return aportes;
+	}
+
+	public void setAportes(List<Aporte> aportes) {
+		this.aportes = aportes;
+	}
+
 }

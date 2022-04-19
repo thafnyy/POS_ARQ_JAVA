@@ -18,16 +18,20 @@ public class PoupancaLoader implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-	
-		Poupanca p = new Poupanca("Aposentadoria", 500000f, "Itau");
-		p.setLiquidezDiaria(false);
-		p.setPctRendaAnual(9.0f);
-		p.setPrazo(Prazo.LONGO.getPrazo());
-
 		Usuario u = new Usuario();
 		u.setId(1);
-		p.setUsuario(u);
-		service.incluir(p);
+
+		if(service.obterLista(u).isEmpty()) {
+			System.out.println("Incluindo poupanca padrao");
+
+			Poupanca p = new Poupanca("Aposentadoria", 500000f, "Itau");
+			p.setLiquidezDiaria(false);
+			p.setPctRendaAnual(9.0f);
+			p.setPrazo(Prazo.LONGO.getPrazo());
+	
+			p.setUsuario(u);
+			service.incluir(p);
+		}
 	
 	}
 

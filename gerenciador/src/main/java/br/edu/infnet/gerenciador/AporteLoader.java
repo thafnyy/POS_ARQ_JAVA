@@ -19,11 +19,15 @@ public class AporteLoader implements ApplicationRunner{
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		Aporte aporte = new Aporte();
-		aporte.setValorAporte(15f);
-		aporte.setData(LocalDateTime.now());
-		
-		service.incluir(aporte);
+		if(service.obterLista().isEmpty()) {
+			System.out.println("Incluindo aporte padrao");
+
+			Aporte aporte = new Aporte();
+			aporte.setValorAporte(15f);
+			aporte.setData(LocalDateTime.now());
+			
+			service.incluir(aporte);
+		}
 	}
 
 }

@@ -27,6 +27,28 @@
 					placeholder="Rendimento Anual" 
 					name="valorAporte" value="${objeto.valorAporte}"/>
 			</div>
+
+			<div class="form-group">
+				<label for="metas">Investidor:</label> 
+				<select name="investidor.id" class="form-control">
+					<c:forEach var="i" items="${investidores}">
+						<option value="${i.id}">${i.nome}</option>
+					</c:forEach>
+				</select>
+			</div>
+			
+			<div class="form-group">
+				<label for="metas">Metas:</label> 
+				<div class="checkbox">
+					<c:forEach var="m" items="${metas}">
+						<label>
+							<input type="checkbox" name="metas" value="${m.id}">
+								${m.nome}
+						</label>
+						<br />
+					</c:forEach>
+				</div>
+			</div>
 			
 			<button type="submit" class="btn btn-outline-dark">Cadastrar</button>
 		</form>

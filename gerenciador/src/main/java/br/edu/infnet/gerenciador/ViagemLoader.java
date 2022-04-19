@@ -19,20 +19,24 @@ public class ViagemLoader implements ApplicationRunner{
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-	
-		Viagem v = new Viagem();
-		v.setLocalDoInvestimento("CDB XP");
-		v.setNome("Cancun em Novembro");
-		v.setValor(18000f);
-		v.setInternacional(true);
-		v.setQtdAcompanhantes(1);
-		v.setDataViagem(LocalDateTime.now());
-		
 		Usuario u = new Usuario();
 		u.setId(1);
-		v.setUsuario(u);
-		
-		service.incluir(v);
+
+		if(service.obterLista(u).isEmpty()) {
+			System.out.println("Incluindo viagem padrao");
+
+			Viagem v = new Viagem();
+			v.setLocalDoInvestimento("CDB XP");
+			v.setNome("Cancun em Novembro");
+			v.setValor(18000f);
+			v.setInternacional(true);
+			v.setQtdAcompanhantes(1);
+			v.setDataViagem(LocalDateTime.now());
+			
+			v.setUsuario(u);
+			
+			service.incluir(v);
+		}
 	
 	}
 
